@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - AttendCloud</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#2563eb,#06b6d4);
+}
+
+.login-container{
+width:400px;
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 15px 40px rgba(0,0,0,.2);
+}
+
+.logo{
+text-align:center;
+font-size:32px;
+font-weight:bold;
+color:#2563eb;
+margin-bottom:10px;
+}
+
+.subtitle{
+text-align:center;
+color:#666;
+margin-bottom:30px;
+}
+
+.input-group{
+margin-bottom:20px;
+}
+
+label{
+display:block;
+margin-bottom:8px;
+font-weight:600;
+}
+
+input,select{
+width:100%;
+padding:14px;
+border:1px solid #ddd;
+border-radius:10px;
+outline:none;
+font-size:15px;
+}
+
+input:focus,
+select:focus{
+border-color:#2563eb;
+}
+
+.login-btn{
+width:100%;
+padding:15px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+transition:.3s;
+}
+
+.login-btn:hover{
+background:#1d4ed8;
+}
+
+.links{
+margin-top:20px;
+text-align:center;
+}
+
+.links a{
+text-decoration:none;
+color:#2563eb;
+}
+
+.demo{
+margin-top:25px;
+padding:15px;
+background:#f5f7fb;
+border-radius:10px;
+font-size:14px;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="login-container">
+
+<div class="logo">AttendCloud</div>
+
+<p class="subtitle">
+Cloud Based Attendance System
+</p>
+
+<form>
+
+<div class="input-group">
+<label>User Type</label>
+
+<select>
+<option>Student</option>
+<option>Teacher</option>
+<option>Admin</option>
+</select>
+</div>
+
+<div class="input-group">
+<label>Email Address</label>
+<input type="email" placeholder="Enter Email">
+</div>
+
+<div class="input-group">
+<label>Password</label>
+<input type="password" placeholder="Enter Password">
+</div>
+
+<button class="login-btn">
+Login
+</button>
+
+</form>
+
+<div class="links">
+<a href="#">Forgot Password?</a>
+<br><br>
+<a href="register.html">
+Create New Account
+</a>
+</div>
+
+<div class="demo">
+<b>Demo Login:</b><br>
+Admin: admin@college.com<br>
+Teacher: teacher@college.com<br>
+Student: student@college.com
+</div>
+
+</div>
+
+</body>
+</html>
