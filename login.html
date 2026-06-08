@@ -108,8 +108,6 @@ font-size:14px;
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-    console.log("Login JS loaded");
-
     const form = document.getElementById("loginForm");
     const errorBox = document.getElementById("errorBox");
 
@@ -119,21 +117,20 @@ document.addEventListener("DOMContentLoaded", function () {
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
 
-        errorBox.style.color = "red";
         errorBox.innerText = "";
 
-        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        const passwordRegex =
+        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
         if (!passwordRegex.test(password)) {
-            errorBox.innerText = "Invalid password format (8 chars, letter, number, special char)";
+            errorBox.innerText =
+            "Password must be 8+ chars with letter, number & special character";
             return;
         }
 
         fetch("backend/api/login.php", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email, password })
         })
         .then(res => res.json())
@@ -165,36 +162,34 @@ document.addEventListener("DOMContentLoaded", function () {
 Cloud Based Attendance System
 </p>
 
-<form>
+<form id="loginForm">
 
 <div class="input-group">
 <label>User Type</label>
-
-<select>
-<option>Student</option>
-<option>Teacher</option>
-<option>Admin</option>
+<select id="role">
+<option value="student">Student</option>
+<option value="teacher">Teacher</option>
+<option value="admin">Admin</option>
 </select>
 </div>
 
 <div class="input-group">
 <label>Email Address</label>
-<input type="email" placeholder="Enter Email">
+<input type="email" id="email" placeholder="Enter Email">
 </div>
 
 <div class="input-group">
 <label>Password</label>
-<input type="password" placeholder="Enter Password">
-</div>
-<div id="errorBox" style="color:red; margin-bottom:10px; font-size:14px;">
+<input type="password" id="password" placeholder="Enter Password">
 </div>
 
-<button class="login-btn">
+<div id="errorBox" style="color:red; margin-bottom:10px; font-size:14px;"></div>
+
+<button type="submit" class="login-btn">
 Login
 </button>
 
 </form>
-
 <div class="links">
 <a href="#">Forgot Password?</a>
 <br><br>
