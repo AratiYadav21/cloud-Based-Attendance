@@ -9,7 +9,7 @@ $email = $data['email'];
 $password = $data['password'];
 $role = $data['role'];
 
-// check if user exists
+// check user exists
 $check = "SELECT * FROM users WHERE email='$email'";
 $result = $conn->query($check);
 

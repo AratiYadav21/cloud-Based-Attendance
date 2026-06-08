@@ -105,53 +105,7 @@ font-size:14px;
 </style>
 
 </head>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
 
-    const form = document.getElementById("loginForm");
-    const errorBox = document.getElementById("errorBox");
-
-    form.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-
-        errorBox.innerText = "";
-
-        const passwordRegex =
-        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-
-        if (!passwordRegex.test(password)) {
-            errorBox.innerText =
-            "Password must be 8+ chars with letter, number & special character";
-            return;
-        }
-
-        fetch("backend/api/login.php", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, password })
-        })
-        .then(res => res.json())
-        .then(data => {
-
-            if (data.status === "success") {
-                alert("Login Successful");
-                window.location.href = "index.php";
-            } else {
-                errorBox.innerText = data.message;
-            }
-
-        })
-        .catch(() => {
-            errorBox.innerText = "Server error";
-        });
-
-    });
-
-});
-</script>
 <body>
 
 <div class="login-container">
