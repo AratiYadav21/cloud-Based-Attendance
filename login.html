@@ -106,46 +106,53 @@ font-size:14px;
 
 </head>
 <script>
-document.getElementById("loginForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    console.log("Login JS loaded");
+
+    const form = document.getElementById("loginForm");
     const errorBox = document.getElementById("errorBox");
 
-    // clear previous error
-    errorBox.innerText = "";
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-    // 🔥 PASSWORD RULE (8 chars, letter, number, special char)
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
 
-    if (!passwordRegex.test(password)) {
-        errorBox.innerText =
-            "Password must be at least 8 characters and include 1 letter, 1 number, and 1 special character.";
-        return;
-    }
+        errorBox.style.color = "red";
+        errorBox.innerText = "";
 
-    fetch("backend/api/login.php", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ email, password })
-    })
-    .then(res => res.json())
-    .then(data => {
+        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-        if (data.status === "success") {
-            window.location.href = "index.php";
-        } else {
-            // 🔴 show backend error in red
-            errorBox.innerText = data.message;
+        if (!passwordRegex.test(password)) {
+            errorBox.innerText = "Invalid password format (8 chars, letter, number, special char)";
+            return;
         }
 
-    })
-    .catch(() => {
-        errorBox.innerText = "Server error. Try again later.";
+        fetch("backend/api/login.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email, password })
+        })
+        .then(res => res.json())
+        .then(data => {
+
+            if (data.status === "success") {
+                alert("Login Successful");
+                window.location.href = "index.php";
+            } else {
+                errorBox.innerText = data.message;
+            }
+
+        })
+        .catch(() => {
+            errorBox.innerText = "Server error";
+        });
+
     });
+
 });
 </script>
 <body>
@@ -179,7 +186,8 @@ Cloud Based Attendance System
 <label>Password</label>
 <input type="password" placeholder="Enter Password">
 </div>
-<div id="errorBox" style="color:red; margin-bottom:10px; font-size:14px;"></div>
+<div id="errorBox" style="color:red; margin-bottom:10px; font-size:14px;">
+</div>
 
 <button class="login-btn">
 Login
