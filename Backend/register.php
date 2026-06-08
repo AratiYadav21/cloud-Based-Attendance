@@ -9,7 +9,7 @@ $email = $data['email'];
 $password = $data['password'];
 $role = $data['role'];
 
-// 🔍 check if user already exists
+// check if user exists
 $check = "SELECT * FROM users WHERE email='$email'";
 $result = $conn->query($check);
 
@@ -21,9 +21,9 @@ if ($result->num_rows > 0) {
     exit();
 }
 
-// 💾 insert new user
+// insert user
 $sql = "INSERT INTO users (name, email, password, role)
-        VALUES ('$name', '$email', '$password', '$role')";
+VALUES ('$name', '$email', '$password', '$role')";
 
 if ($conn->query($sql)) {
     echo json_encode([
