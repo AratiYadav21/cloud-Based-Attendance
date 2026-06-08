@@ -105,6 +105,52 @@ font-size:14px;
 </style>
 
 </head>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const role = document.getElementById("role").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    fetch("backend/api/login.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            role: role,
+            email: email,
+            password: password
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+
+        if (data.status === "success") {
+            alert("Login Successful!");
+
+            // redirect based on role (optional but useful)
+            if (role === "admin") {
+                window.location.href = "admin-dashboard.html";
+            } else if (role === "teacher") {
+                window.location.href = "teacher-dashboard.html";
+            } else {
+                window.location.href = "student-dashboard.html";
+            }
+
+        } else {
+            alert(data.message);
+        }
+
+    })
+    .catch(err => {
+        console.log(err);
+        alert("Server error");
+    });
+});
+</script>
 <body>
 
 <div class="login-container">
@@ -149,13 +195,6 @@ Login
 <a href="register.html">
 Create New Account
 </a>
-</div>
-
-<div class="demo">
-<b>Demo Login:</b><br>
-Admin: admin@college.com<br>
-Teacher: teacher@college.com<br>
-Student: student@college.com
 </div>
 
 </div>
