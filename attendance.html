@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Attendance - Cloud System</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6ff;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      height: 100vh;
+      background: linear-gradient(135deg, #4a6cf7, #6a11cb);
+      color: #fff;
+      padding: 20px;
+      position: fixed;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* Main */
+    .main {
+      margin-left: 240px;
+      padding: 20px;
+      width: 100%;
+    }
+
+    .header {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    /* Control Panel */
+    .panel {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: #4a6cf7;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #3a57d6;
+    }
+
+    /* Table */
+    .table-box {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background: #4a6cf7;
+      color: white;
+    }
+
+    .present {
+      color: green;
+      font-weight: bold;
+    }
+
+    .absent {
+      color: red;
+      font-weight: bold;
+    }
+
+    .btn {
+      padding: 6px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .presentBtn {
+      background: green;
+    }
+
+    .absentBtn {
+      background: red;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Attendance</h2>
+    <a href="#">Dashboard</a>
+    <a href="#">Mark Attendance</a>
+    <a href="#">Reports</a>
+    <a href="#">Logout</a>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+
+    <div class="header">
+      <h3>Mark Student Attendance 📅</h3>
+    </div>
+
+    <!-- Control Panel -->
+    <div class="panel">
+      <h3>Select Class & Subject</h3>
+
+      <select>
+        <option>Select Class</option>
+        <option>FYCS</option>
+        <option>SYCS</option>
+        <option>TYCS</option>
+      </select>
+
+      <select>
+        <option>Select Subject</option>
+        <option>Math</option>
+        <option>Science</option>
+        <option>English</option>
+      </select>
+
+      <button onclick="startAttendance()">Start Attendance</button>
+    </div>
+
+    <!-- Attendance Table -->
+    <div class="table-box">
+      <h3>Student List</h3>
+
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Roll No</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+
+        <tr>
+          <td>Rahul Sharma</td>
+          <td>101</td>
+          <td id="s1">Not Marked</td>
+          <td>
+            <button class="btn presentBtn" onclick="markPresent('s1')">Present</button>
+            <button class="btn absentBtn" onclick="markAbsent('s1')">Absent</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Anita Patil</td>
+          <td>102</td>
+          <td id="s2">Not Marked</td>
+          <td>
+            <button class="btn presentBtn" onclick="markPresent('s2')">Present</button>
+            <button class="btn absentBtn" onclick="markAbsent('s2')">Absent</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Vikram Singh</td>
+          <td>103</td>
+          <td id="s3">Not Marked</td>
+          <td>
+            <button class="btn presentBtn" onclick="markPresent('s3')">Present</button>
+            <button class="btn absentBtn" onclick="markAbsent('s3')">Absent</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
+  <script>
+    function startAttendance() {
+      alert("Attendance session started");
+    }
+
+    function markPresent(id) {
+      document.getElementById(id).innerHTML = "Present";
+      document.getElementById(id).className = "present";
+    }
+
+    function markAbsent(id) {
+      document.getElementById(id).innerHTML = "Absent";
+      document.getElementById(id).className = "absent";
+    }
+  </script>
+
+</body>
+</html>
