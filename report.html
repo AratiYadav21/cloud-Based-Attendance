@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Attendance Report</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6ff;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      height: 100vh;
+      background: linear-gradient(135deg, #4a6cf7, #6a11cb);
+      color: white;
+      padding: 20px;
+      position: fixed;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+    }
+
+    .sidebar a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* Main */
+    .main {
+      margin-left: 240px;
+      padding: 20px;
+      width: 100%;
+    }
+
+    .header {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    /* Filter Panel */
+    .panel {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: #4a6cf7;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #3a57d6;
+    }
+
+    /* Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      color: #4a6cf7;
+      margin: 0;
+    }
+
+    /* Table */
+    .table-box {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      text-align: center;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background: #4a6cf7;
+      color: white;
+    }
+
+    .good {
+      color: green;
+      font-weight: bold;
+    }
+
+    .avg {
+      color: orange;
+      font-weight: bold;
+    }
+
+    .poor {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Reports</h2>
+    <a href="#">Dashboard</a>
+    <a href="#">Attendance</a>
+    <a href="#">Reports</a>
+    <a href="#">Logout</a>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+
+    <div class="header">
+      <h3>Attendance Report 📊</h3>
+    </div>
+
+    <!-- Filter Panel -->
+    <div class="panel">
+      <h3>Filter Report</h3>
+
+      <select>
+        <option>Select Class</option>
+        <option>FYCS</option>
+        <option>SYCS</option>
+        <option>TYCS</option>
+      </select>
+
+      <select>
+        <option>Select Month</option>
+        <option>January</option>
+        <option>February</option>
+        <option>March</option>
+      </select>
+
+      <button onclick="generateReport()">Generate Report</button>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="cards">
+      <div class="card">
+        <h3 id="total">3</h3>
+        <p>Total Students</p>
+      </div>
+
+      <div class="card">
+        <h3 id="avg">82%</h3>
+        <p>Average Attendance</p>
+      </div>
+
+      <div class="card">
+        <h3 id="high">1</h3>
+        <p>High Performers</p>
+      </div>
+
+      <div class="card">
+        <h3 id="low">1</h3>
+        <p>Low Attendance</p>
+      </div>
+    </div>
+
+    <!-- Report Table -->
+    <div class="table-box">
+      <h3>Student Attendance Report</h3>
+
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Roll No</th>
+          <th>Attendance %</th>
+          <th>Status</th>
+        </tr>
+
+        <tr>
+          <td>Rahul Sharma</td>
+          <td>101</td>
+          <td>92%</td>
+          <td class="good">Excellent</td>
+        </tr>
+
+        <tr>
+          <td>Anita Patil</td>
+          <td>102</td>
+          <td>75%</td>
+          <td class="avg">Average</td>
+        </tr>
+
+        <tr>
+          <td>Vikram Singh</td>
+          <td>103</td>
+          <td>60%</td>
+          <td class="poor">Poor</td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
+  <script>
+    function generateReport() {
+      alert("Report generated successfully (UI only)");
+    }
+  </script>
+
+</body>
+</html>
