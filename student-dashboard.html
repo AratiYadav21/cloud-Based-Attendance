@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Dashboard - Attendance System</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6ff;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      height: 100vh;
+      background: linear-gradient(135deg, #4a6cf7, #6a11cb);
+      color: #fff;
+      padding: 20px;
+      position: fixed;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* Main Content */
+    .main {
+      margin-left: 240px;
+      padding: 20px;
+      width: 100%;
+    }
+
+    .header {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .card h3 {
+      margin: 0;
+      color: #4a6cf7;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* Attendance Table */
+    .table-box {
+      margin-top: 20px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+    }
+
+    th {
+      background: #4a6cf7;
+      color: #fff;
+    }
+
+    .present {
+      color: green;
+      font-weight: bold;
+    }
+
+    .absent {
+      color: red;
+      font-weight: bold;
+    }
+
+    /* Profile */
+    .profile {
+      float: right;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Student</h2>
+    <a href="#">Dashboard</a>
+    <a href="#">Attendance</a>
+    <a href="#">Subjects</a>
+    <a href="#">Profile</a>
+    <a href="#">Logout</a>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+
+    <div class="header">
+      <span>Welcome, Student 👋</span>
+      <span class="profile">Roll No: 101</span>
+    </div>
+
+    <!-- Cards -->
+    <div class="cards">
+      <div class="card">
+        <h3>85%</h3>
+        <p>Overall Attendance</p>
+      </div>
+
+      <div class="card">
+        <h3>12</h3>
+        <p>Present Days</p>
+      </div>
+
+      <div class="card">
+        <h3>3</h3>
+        <p>Absent Days</p>
+      </div>
+
+      <div class="card">
+        <h3>5</h3>
+        <p>Subjects</p>
+      </div>
+    </div>
+
+    <!-- Attendance Table -->
+    <div class="table-box">
+      <h3>Recent Attendance</h3>
+
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Subject</th>
+          <th>Status</th>
+        </tr>
+
+        <tr>
+          <td>01-06-2026</td>
+          <td>Math</td>
+          <td class="present">Present</td>
+        </tr>
+
+        <tr>
+          <td>02-06-2026</td>
+          <td>Science</td>
+          <td class="absent">Absent</td>
+        </tr>
+
+        <tr>
+          <td>03-06-2026</td>
+          <td>English</td>
+          <td class="present">Present</td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
+</body>
+</html>
