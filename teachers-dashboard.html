@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teacher Dashboard - Attendance System</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6ff;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      height: 100vh;
+      background: linear-gradient(135deg, #4a6cf7, #6a11cb);
+      color: #fff;
+      padding: 20px;
+      position: fixed;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* Main */
+    .main {
+      margin-left: 240px;
+      padding: 20px;
+      width: 100%;
+    }
+
+    .header {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .card h3 {
+      margin: 0;
+      color: #4a6cf7;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* Attendance Control Panel */
+    .panel {
+      margin-top: 20px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .panel h3 {
+      margin-bottom: 10px;
+    }
+
+    select, button {
+      padding: 10px;
+      margin: 5px 0;
+      width: 100%;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: #4a6cf7;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #3a57d6;
+    }
+
+    /* Student Table */
+    .table-box {
+      margin-top: 20px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background: #4a6cf7;
+      color: white;
+    }
+
+    .present {
+      color: green;
+      font-weight: bold;
+    }
+
+    .absent {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Teacher</h2>
+    <a href="#">Dashboard</a>
+    <a href="#">Mark Attendance</a>
+    <a href="#">Students</a>
+    <a href="#">Reports</a>
+    <a href="#">Profile</a>
+    <a href="#">Logout</a>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+
+    <div class="header">
+      <span>Welcome, Teacher 👨‍🏫</span>
+    </div>
+
+    <!-- Cards -->
+    <div class="cards">
+      <div class="card">
+        <h3>3</h3>
+        <p>Classes Today</p>
+      </div>
+
+      <div class="card">
+        <h3>45</h3>
+        <p>Total Students</p>
+      </div>
+
+      <div class="card">
+        <h3>12</h3>
+        <p>Attendance Marked</p>
+      </div>
+
+      <div class="card">
+        <h3>1</h3>
+        <p>Pending Class</p>
+      </div>
+    </div>
+
+    <!-- Attendance Control -->
+    <div class="panel">
+      <h3>Mark Attendance</h3>
+
+      <select>
+        <option>Select Class</option>
+        <option>FYCS</option>
+        <option>SYCS</option>
+        <option>TYCS</option>
+      </select>
+
+      <select>
+        <option>Select Subject</option>
+        <option>Math</option>
+        <option>Science</option>
+        <option>English</option>
+      </select>
+
+      <button>Start Attendance</button>
+    </div>
+
+    <!-- Student Table -->
+    <div class="table-box">
+      <h3>Student List</h3>
+
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Roll No</th>
+          <th>Status</th>
+        </tr>
+
+        <tr>
+          <td>Rahul Sharma</td>
+          <td>101</td>
+          <td class="present">Present</td>
+        </tr>
+
+        <tr>
+          <td>Anita Patil</td>
+          <td>102</td>
+          <td class="absent">Absent</td>
+        </tr>
+
+        <tr>
+          <td>Vikram Singh</td>
+          <td>103</td>
+          <td class="present">Present</td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
+</body>
+</html>
